@@ -1,0 +1,107 @@
+pip3 install raspberrypi-tm1637
+
+
+Code:// display_digits
+#!/usr/bin/env python3
+from time import sleep
+import tm1637  # Your RPi.GPIO library
+
+
+Display = tm1637.TM1637(CLK=21, DIO=20, brightness=1.0)
+
+
+try:
+    print("=== 7-SEGMENT DISPLAY PRACTICAL ===")
+    print("Part 1: Single digits 0-9")
+    print("Part 2: Two-digit numbers 00-99")
+    print("Press CTRL+C to stop...\n")
+    
+    # PART 1: Display single digits 0-9 (1 second each)
+    print("0 to 9:")
+    for digit in range(10):
+        # Right-align single digit
+        segments = [0, 0, 0, Display.digit_to_segment[digit]]
+        Display.set_segments(segments)
+        print("  Display:    {}".format(digit))
+        sleep(1)
+    
+    sleep(2)
+    
+
+Display numbers 00-99
+Code:
+# PART 2: Display 00-99 (0.5 seconds each)
+    print("00 to 99:")
+    for num in range(100):
+        tens = num // 10
+        units = num % 10
+        
+        segments = [
+            Display.digit_to_segment[tens] if tens else 0,
+            Display.digit_to_segment[units],
+            0, 0
+        ]
+        Display.set_segments(segments)
+        
+        if num % 10 == 0:  # Print every 10 numbers
+            print("  {:02d}".format(num), end=' ')
+        sleep(0.5)
+    
+    print("\n\nDemo complete!")
+
+
+except KeyboardInterrupt:
+    print("\nStopped by user")
+finally:
+    Display.cleanup()
+    print("Display cleaned up")
+
+Display hours and minuts.
+Now open 7_seg_cpode> thonny
+from time import sleep
+import tm1637  # Your modified library above
+
+
+try:
+    import thread
+except ImportError:
+    import _thread as thread
+
+
+Display = tm1637.TM1637(CLK=21, DIO=20, brightness=1.0)  
+
+
+try:
+    print("Starting clock in the background (press CTRL + C to stop):")
+    Display.StartClock(military_time=True)      
+    sleep(1)
+    Display.ShowDoublepoint(False)             
+    sleep(5)
+    Display.StopClock()                         
+    
+except KeyboardInterrupt:
+    Display.cleanup()
+
+_____
+
+
+from time import sleep
+import tm1637  # Your modified library above
+
+try:
+    import thread
+except ImportError:
+    import _thread as thread
+
+Display = tm1637.TM1637(CLK=21, DIO=20, brightness=1.0)  
+
+try:
+    print("Starting clock in the background (press CTRL + C to stop):")
+    Display.StartClock(military_time=True)      
+    sleep(1)
+    Display.ShowDoublepoint(False)             
+    sleep(5)
+    Display.StopClock()                         
+    
+except KeyboardInterrupt:
+    Display.cleanup()
