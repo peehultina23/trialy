@@ -1,0 +1,150 @@
+# trialy
+
+#LED
+| LED | Physical PIN Number | GPIO Number |
+| ------- | ------------------- | ----------- |
+| LED 1 | 29 | GPIO 05 |
+| LED 2 | 31 | GPIO 06 |
+| LED 3 | 33 | GPIO 13 |
+| LED 4 | 35 | GPIO 19 |
+| LED 5 | 37 | GPIO 26 |
+| All GND | 39 | GND |
+
+sudo apt update
+sudo apt install python3-rpi.gpio
+
+#7segment display
+pip3 install raspberrypi-tm1637
+| TM1637 Board Pin | Physical PIN Number | GPIO Number |
+| ---------------- | ------------------- | ----------- |
+| CLK | 38 | GPIO 20 |
+| DIO | 40 | GPIO 21 |
+| VCC | 1 | 3.3 V |
+| GND | 6 | Ground |
+
+#Telegram
+pip3 install python-telegram-bot
+sudo apt-get install python-pip
+sudo pip install telepot
+
+| Board Pin | Physical PIN Number | GPIO Number |
+| --------- | ------------------- | ----------- |
+| GPIO      | 40                  | GPIO 21     |
+| GND       | 6                   | Ground      |
+
+steps to connect telegram bot with raspberry pi:
+Step to get bot on Telegram app:
+1: Download Telegram on your mobile phone.
+2: Install Telegram.
+2: Open Telegram app in your system or mobile
+3: Click On Start Messaging Button
+4: Enter your mobile number to register with the telegram service.
+5: Search for name "BotFather".
+6: Click on "BotFather" and start chatting with it.
+7: To Start "BotFather" type /start in message
+8: Now type /newbot in message . and then give the name to your BOT and Username also.
+9: After that you will get a message with your bot token. Copy that token and save it for later use.
+10: Now your bot is ready to use. You can search for your bot using the username you provided and start chatting with it.
+
+#GPS Module
+sudo apt-get update
+sudo apt-get upgrade
+sudo pip3 install pyserial
+
+pip3 install gpsd-py3
+| GPS Module Pin | Raspberry Pi GPIO Pin | Physical Pin Number |
+| -------------- | --------------------- | ------------------- |
+| TX | RXD (GPIO15) | Pin 10 |
+| RX | TXD (GPIO14) | Pin 8 |
+| VCC | 5V Power | Pin 2 |
+| GND | Ground | Pin 6 |
+
+#RFID Module
+sudo apt-get update
+sudo apt-get install python3-pip
+pip3 install mfrc522
+pip3 install pyserial
+| RFID EM-18 Pin | Raspberry Pi Physical Pin | GPIO Number | Function |
+| -------------- | ------------------------- | ----------------- | ----------------- |
+| TX | Pin 10 | GPIO 15 (RXD) | Serial Data to Pi |
+| VCC | Pin 2 | 5V | Power Supply |
+| GND | Pin 6 | Ground | Ground |
+sudo raspi-config
+Interface Options → Serial → Enable
+sudo reboot
+
+#Fingerprint Sensor
+sudo apt-get update
+sudo apt-get install python3-pip
+pip3 install pyfingerprint
+sudo apt-get upgrade
+sudo pip3 install pyfingerprint
+sudo usermod -a -G dialout $USER
+sudo reboot
+| Fingerprint Sensor Pin | Raspberry Pi Physical Pin | GPIO Number | Function |
+| ---------------------- | ------------------------- | ----------------- | ----------------- |
+| TX | Pin 10 | GPIO 15 (RXD) | Serial Data to Pi |
+| RX | Pin 8 | GPIO 14 (TXD) | Serial Data from Pi |
+| VCC | Pin 2 | 5V | Power Supply |
+| GND | Pin 6 | Ground | Ground |
+sudo raspi-config
+Interface Options → Serial → Enable
+
+#Camera Module
+sudo apt-get update
+sudo apt-get install python3-picamera
+| Device | Raspberry Pi Connection | Physical Pin | GPIO |
+| ---------------------- | ----------------------- | -------------- | -------------- |
+| Pi Camera Ribbon Cable | CSI Camera Port | Not Applicable | Not Applicable |
+| Power | Provided through CSI | — | — |
+| Data | CSI Interface | — | — |
+
+sudo raspi-config
+Interface Options → I2C → Enable
+
+#motor
+sudo apt-get update
+sudo apt-get install python3-pip
+pip3 install RPi.GPIO
+| Module / Pin | Raspberry Pi Physical Pin | GPIO Number | Connection |
+| --------------------------- | ------------------------- | ----------- | ---------------------------------- |
+| A1 | 11 | GPIO 17 | Motor control input 1 |
+| A2 | 13 | GPIO 27 | Motor control input 2 |
+| EA (Enable) | — | — | Connect to +5V External Supply |
+| VCC (L293D Logic Power) | — | — | Connect to +5V External Supply |
+| GND (L293D) | — | — | Connect to External GND |
+| Raspberry Pi VCC | Pin 1 | 5V | Connect to +5V External |
+| Raspberry Pi GND | Pin 6 | GND | Connect to External GND |
+sudo raspi-config
+Interface Options → Serial → Enable
+
+##extra
+#blink single led
+| Component | Raspberry Pi Physical Pin | GPIO | Connection |
+| --------------- | ------------------------- | ---------- | ------------------------- |
+| LED Anode (+) | Pin 29 | GPIO 5 | Through **220Ω resistor** |
+| LED Cathode (-) | Pin 6 | GND | Ground |
+
+#toggle 2 LEDs
+| Component | Raspberry Pi Physical Pin | GPIO | Connection |
+| ----------------- | ------------------------- | ---------- | ---------------- |
+| LED 1 | Pin 29 | GPIO 5 | Through resistor |
+| LED 2 | Pin 31 | GPIO 6 | Through resistor |
+| Both LED Cathodes | Pin \*\*6 | GND | Ground |
+
+#4leds
+| LED | Physical Pin | GPIO |
+| ----------- | ------------ | ------ |
+| LED1 | 29 | GPIO5 |
+| LED2 | 31 | GPIO6 |
+| LED3 | 33 | GPIO13 |
+| LED4 | 35 | GPIO19 |
+| All LED GND | Pin 6 | GND |
+
+#button
+| Component | Physical Pin | GPIO |
+| --------------------- | ------------ | ------ |
+| Button | 37 | GPIO26 |
+| Other button terminal | Pin 6 | GND |
+
+p-mallah123 git hub
