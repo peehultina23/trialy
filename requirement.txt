@@ -1,5 +1,12 @@
 # trialy
 
+
+Install prerequisites: `sudo apt update && sudo apt install python3-full python3-venv -y`
+•	Create venv: `python3 -m venv ~/myenv` (or any path you prefer)
+•	Activate: `source ~/myenv/bin/activate`
+git clone https://github.com/p-mallah123/tm1637.git
+
+
 #LED
 | LED | Physical PIN Number | GPIO Number |
 | ------- | ------------------- | ----------- |
