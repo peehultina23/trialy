@@ -57,6 +57,9 @@ Step to get bot on Telegram app:
 sudo apt-get update
 sudo apt-get upgrade
 sudo pip3 install pyserial
+sudo raspi-config
+Interface options > Serial Port > No > Yes > Ok > finish > Yes 
+
 
 pip3 install gpsd-py3
 | GPS Module Pin | Raspberry Pi GPIO Pin | Physical Pin Number |
